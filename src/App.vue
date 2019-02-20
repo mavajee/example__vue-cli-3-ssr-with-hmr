@@ -1,12 +1,40 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <header id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    </header>
+
+    <main>
+      <router-view v-if="showLayout" />
+      <Error
+        v-else
+        :code="errorCode"
+        :text="errorText"
+      />
+    </main>
   </div>
 </template>
+
+<script>
+import { mapState } from 'vuex';
+import Error from '@/components/error/Error.vue';
+
+export default {
+  components: { Error },
+
+  computed: {
+    ...mapState('error', {
+      errorCode: state => state.code,
+      errorText: state => state.text,
+    }),
+    showLayout() {
+      return !(this.errorCode);
+    },
+  },
+};
+</script>
+
 
 <style lang="scss">
 #app {

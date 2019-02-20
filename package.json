@@ -4,12 +4,16 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vue-cli-service build",
+    "build:server": "cross-env WEBPACK_TARGET=node vue-cli-service build --no-clean",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "express": "^4.16.4",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
+    "vue-server-renderer": "^2.6.6",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
@@ -18,11 +22,15 @@
     "@vue/cli-service": "^3.4.0",
     "@vue/eslint-config-airbnb": "^4.0.0",
     "babel-eslint": "^10.0.1",
+    "cross-env": "^5.2.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "fibers": "^3.1.1",
     "sass": "^1.16.0",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.5.21"
+    "vue-template-compiler": "^2.5.21",
+    "webpack-hot-middleware": "^2.24.3",
+    "webpack-node-externals": "^1.7.2",
+    "webpackbar": "^3.1.5"
   }
 }
