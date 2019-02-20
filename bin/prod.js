@@ -5,4 +5,3 @@ require('./../scripts/check-build-exist');
 
 // Run server
 require('./../server');
-production

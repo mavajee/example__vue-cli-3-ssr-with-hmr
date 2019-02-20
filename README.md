@@ -1,29 +1,39 @@
-# vue-cli-3-ssr
+# vue-cli-3-ssr (Beta)
 
-## Project setup
-```
+Add ssr for vue-cli-3 app without using third paty plugins
+
+## Running and Building
+
+``` bash
+# install dependencies
 yarn install
-```
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+# build all
+yarn build
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+# build client only
+yarn build:client
 
-### Run your tests
-```
-yarn run test
-```
+# build server only
+yarn build:server
 
-### Lints and fixes files
-```
-yarn run lint
+# Run ssr server in production mode
+yarn start
+
+# Serve with hot relod (Beta).
+yarn serve
+
+# Serve with hot relod only client
+yarn serve:client
+
+# Run lint
+yarn lint
 ```
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+TODO:
+- Make vue config more friendly;
+- Add tests;
+- Add chokidar for dev mode to autorestart server.
